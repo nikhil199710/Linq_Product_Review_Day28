@@ -6,15 +6,16 @@ using System.Text;
 
 namespace ProductReviewManagement
 {
-    class DataTableForProductManagement
+    public class DataTableForProductManagement
     {
+        DataTable table = new DataTable();
         /// <summary>
         /// Adds the data table for product management 
         /// UC8
         /// </summary>
         public void AddDataTable()
         {
-            DataTable table = new DataTable();
+            //DataTable table = new DataTable();
             table.Columns.Add("productId");
             table.Columns.Add("UserId");
             table.Columns.Add("Ratings");
@@ -32,6 +33,16 @@ namespace ProductReviewManagement
             table.Rows.Add("10", "2", "2", "Bad", false);
             table.Rows.Add("11", "3", "3", "Average", true);
             table.Rows.Add("12", "1", "3", "Average", false);
+        }
+        public void RetrievingRecords()
+        {
+            var recordedData = from products in table.AsEnumerable()
+                             where (products.Field<string>("isLike") == true.ToString())
+                             select products;
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductId:-" + list.Field<string>("productId") + " UserId:-" + list.Field<string>("userId") + " Ratings:-" + list.Field<string>("ratings") + " Review:-" + list.Field<string>("reviews") + " IsLike:-" + list.Field<string>("isLike"));
+            }
         }
 
     }
