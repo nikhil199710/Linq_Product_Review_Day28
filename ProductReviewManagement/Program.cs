@@ -52,9 +52,9 @@ namespace ProductReviewManagement
             //UC3
             //productManagement.SelectedRecords(productReviewList);
             //UC4
-            productManagement.countOfReviews(productReviewList);
+            //productManagement.countOfReviews(productReviewList);
             //UC5_UC7
-            //productManagement.retrieveProductIDandreview(productReviewList);
+            productManagement.retrieveProductIDandreview(productReviewList);
             //UC6
             //productManagement.SkippingRecords(productReviewList);
             //UC8
