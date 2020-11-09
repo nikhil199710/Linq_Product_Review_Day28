@@ -66,7 +66,9 @@ namespace ProductReviewManagement
             //UC10
             //dataTableForProductManagement.AverageRatingForUserIDUsingDataTable();
             //UC11
-            dataTableForProductManagement.ReviewMessageRetrieval();
+            //dataTableForProductManagement.ReviewMessageRetrieval();
+            //UC12
+            dataTableForProductManagement.SelectRecordsForUserId();
 
 
         }
