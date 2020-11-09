@@ -42,10 +42,10 @@ namespace ProductReviewManagement
                 new ProductReview(){ProductId=25,UserId=11,Rating=4,Review="nice",isLike=true},
 
             };
-            foreach (var list in productReviewList)
-            {
-                Console.WriteLine("ProductId:-" + list.ProductId + " UserId:-" + list.UserId + " Ratings:-" + list.Rating + " Review:-" + list.Review + " IsLike:-" + list.isLike);
-            }
+            //foreach (var list in productReviewList)
+            //{
+            //    Console.WriteLine("ProductId:-" + list.ProductId + " UserId:-" + list.UserId + " Ratings:-" + list.Rating + " Review:-" + list.Review + " IsLike:-" + list.isLike);
+            //}
             ProductManagement productManagement = new ProductManagement();
             //UC2
             //productManagement.TopRecords(productReviewList);
@@ -54,13 +54,15 @@ namespace ProductReviewManagement
             //UC4
             //productManagement.countOfReviews(productReviewList);
             //UC5_UC7
-            productManagement.retrieveProductIDandreview(productReviewList);
+            //productManagement.retrieveProductIDandreview(productReviewList);
             //UC6
             //productManagement.SkippingRecords(productReviewList);
             //UC8
             //Query
             //UC9
-            //productManagement.RetreiveRecordisLike(productReviewList);
+            DataTableForProductManagement dataTableForProductManagement = new DataTableForProductManagement();
+            dataTableForProductManagement.AddDataTable();
+            dataTableForProductManagement.RetrievingRecords();
             //UC10
             //productManagement.AverageRatingOfEachProductId(productReviewList);
             //UC11
