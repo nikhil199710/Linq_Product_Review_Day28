@@ -25,14 +25,14 @@ namespace ProductReviewManagement
             table.Rows.Add("2", "3", "4", "Good", true);
             table.Rows.Add("3", "4", "4", "Good", true);
             table.Rows.Add("4", "5", "5", "Good", true);
-            table.Rows.Add("5", "4", "3", "Average", true);
+            table.Rows.Add("5", "4", "3", "nice", true);
             table.Rows.Add("6", "5", "1", "Bad", false);
             table.Rows.Add("7", "10", "5", "Good", true);
             table.Rows.Add("8", "10", "5", "Good", true);
             table.Rows.Add("9", "3", "4", "Good", true);
             table.Rows.Add("10", "2", "2", "Bad", false);
-            table.Rows.Add("11", "3", "3", "Average", true);
-            table.Rows.Add("12", "1", "3", "Average", false);
+            table.Rows.Add("11", "3", "3", "nice", true);
+            table.Rows.Add("12", "1", "3", "nice", false);
         }
 
         //UC9
@@ -54,6 +54,17 @@ namespace ProductReviewManagement
             {
                 Console.WriteLine("user Id:-" + list.userid + " Ratings :" + list.averageRatings);
             }
+        }
+        //UC11
+
+        public void ReviewMessageRetrieval()
+        {
+            var recordData = table.AsEnumerable().Where(r => r.Field<string>("reviews") == "nice");
+            foreach (var list in recordData)
+            {
+                Console.WriteLine("ProductId:-" + list.Field<string>("productId") + " UserId:-" + list.Field<string>("userId") + " Ratings:-" + list.Field<string>("ratings") + " Review:-" + list.Field<string>("reviews") + " IsLike:-" + list.Field<string>("isLike"));
+            }
+
         }
     }
 }
