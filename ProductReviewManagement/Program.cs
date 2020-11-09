@@ -62,9 +62,9 @@ namespace ProductReviewManagement
             //UC9
             DataTableForProductManagement dataTableForProductManagement = new DataTableForProductManagement();
             dataTableForProductManagement.AddDataTable();
-            dataTableForProductManagement.RetrievingRecords();
+            //dataTableForProductManagement.RetrievingRecords();
             //UC10
-            //productManagement.AverageRatingOfEachProductId(productReviewList);
+            dataTableForProductManagement.AverageRatingForUserIDUsingDataTable();
             //UC11
             //productManagement.RetreiveRecordReview(productReviewList);
 

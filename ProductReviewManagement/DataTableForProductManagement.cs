@@ -34,6 +34,8 @@ namespace ProductReviewManagement
             table.Rows.Add("11", "3", "3", "Average", true);
             table.Rows.Add("12", "1", "3", "Average", false);
         }
+
+        //UC9
         public void RetrievingRecords()
         {
             var recordedData = from products in table.AsEnumerable()
@@ -41,9 +43,17 @@ namespace ProductReviewManagement
                              select products;
             foreach (var list in recordedData)
             {
-                Console.WriteLine("ProductId:-" + list.Field<string>("productId") + " UserId:-" + list.Field<string>("userId") + " Ratings:-" + list.Field<string>("ratings") + " Review:-" + list.Field<string>("reviews") + " IsLike:-" + list.Field<string>("isLike"));
+                Console.WriteLine("ProductId: " + list.Field<string>("productId") + " UserId: " + list.Field<string>("userId") + " Ratings:-" + list.Field<string>("ratings") + " Review:-" + list.Field<string>("reviews") + " IsLike:-" + list.Field<string>("isLike"));
             }
         }
-
+        //UC10
+        public void AverageRatingForUserIDUsingDataTable()
+        {
+            var recordData = table.AsEnumerable().GroupBy(r => r.Field<string>("userId")).Select(r => new { userid = r.Key, averageRatings = r.Average(x => Convert.ToInt32(x.Field<string>("ratings"))) });
+            foreach (var list in recordData)
+            {
+                Console.WriteLine("user Id:-" + list.userid + " Ratings :" + list.averageRatings);
+            }
+        }
     }
 }
